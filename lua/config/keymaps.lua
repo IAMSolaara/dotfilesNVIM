@@ -9,7 +9,7 @@ vim.keymap.set("n", "{", "<cmd>bprevious<CR>", { noremap = true, desc = "Prev Bu
 vim.keymap.set("n", "}", "<cmd>bnext<CR>", { noremap = true, desc = "Next Buffer" })
 
 -- misc bindings --sarah
-vim.keymap.set("n", "<Leader>qq", "<cmd>quitall<CR>", { noremap = true, desc = "Quit All" })
+-- vim.keymap.set("n", "<Leader>qq", "<cmd>quitall<CR>", { noremap = true, desc = "Quit All" })
 
 -- -- bindings to move lines --sarah
 vim.keymap.set("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
