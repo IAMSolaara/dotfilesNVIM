@@ -21,9 +21,11 @@ XWNXKOkx; c0.                  .,
      'k;           :x:         .cl;          
                    ONl           .ll'        
                    WM             .          
-                  .MM                        ]]
+                  .MM                        
+                                             
+             S O L A A R A                   ]]
 
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      logo = string.rep("\n", 2) .. logo .. "\n\n"
       opts.config.header = vim.split(logo, "\n")
 
       vim.cmd([[highlight DashboardHeader guifg=#fff1a4]])
