@@ -1,0 +1,5 @@
+return {
+  {
+    "uarun/vim-protobuf",
+  },
+}
