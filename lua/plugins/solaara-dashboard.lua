@@ -1,6 +1,6 @@
 return {
   {
-    "nvimdev/dashboard-nvim",
+    "folke/snacks.nvim",
     opts = function(_, opts)
       local logo = [[                       ..                    
                        ..                    
@@ -26,9 +26,10 @@ XWNXKOkx; c0.                  .,
              S O L A A R A                   ]]
 
       logo = string.rep("\n", 2) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
 
-      vim.cmd([[highlight DashboardHeader guifg=#fff1a4]])
+      opts.dashboard.preset.header = logo
+
+      vim.cmd([[highlight SnacksDashboardHeader guifg=#fff1a4]])
     end,
   },
 }
