@@ -50,4 +50,12 @@ return {
       },
     },
   },
+  { "budimanjojo/k8s-snippets" },
+  {
+    "garymjr/nvim-snippets",
+    opts = {
+      friendly_snippets = true,
+    },
+    dependencies = { "rafamadriz/friendly-snippets", "budimanjojo/k8s-snippets" },
+  },
 }
