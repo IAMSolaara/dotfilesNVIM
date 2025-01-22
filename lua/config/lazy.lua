@@ -38,6 +38,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.sql" },
     -- utils
     { import = "lazyvim.plugins.extras.util.project" },
+    { import = "lazyvim.plugins.extras.editor.telescope" },
     -- import/override with your plugins
     { import = "plugins" },
     --{ dir = "~/Workspace/Code/personal/one-candy-dark.nvim/", lazy = true },
