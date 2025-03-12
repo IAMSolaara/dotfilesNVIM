@@ -36,6 +36,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.gleam" },
     { import = "lazyvim.plugins.extras.lang.nushell" },
     { import = "lazyvim.plugins.extras.lang.sql" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- utils
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
