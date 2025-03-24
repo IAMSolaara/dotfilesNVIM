@@ -34,15 +34,16 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.elixir" },
     { import = "lazyvim.plugins.extras.lang.gleam" },
-    { import = "lazyvim.plugins.extras.lang.nushell" },
     { import = "lazyvim.plugins.extras.lang.sql" },
     { import = "lazyvim.plugins.extras.lang.go" },
+    -- config plugins
+    { import = "lazyvim.plugins.extras.lang.nushell" },
+    { import = "lazyvim.plugins.extras.lang.nix" },
     -- utils
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
     -- import/override with your plugins
     { import = "plugins" },
-    --{ dir = "~/Workspace/Code/personal/one-candy-dark.nvim/", lazy = true },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
