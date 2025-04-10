@@ -12,6 +12,7 @@ return {
         cmp = true,
         dashboard = true,
         flash = true,
+        fidget = true,
         gitsigns = true,
         headlines = true,
         illuminate = true,

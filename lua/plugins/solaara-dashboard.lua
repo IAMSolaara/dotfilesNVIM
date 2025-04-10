@@ -2,7 +2,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = function(_, opts)
-      local logo = [[                       ..                    
+      local logo = [[
+
+                       ..                    
                        ..                    
        ..             ..                     
        ,lc.           ''                     
@@ -23,9 +25,9 @@ XWNXKOkx; c0.                  .,
                    WM             .          
                   .MM                        
                                              
-             S O L A A R A                   ]]
+             S O L A A R A                   
 
-      logo = string.rep("\n", 2) .. logo .. "\n\n"
+]]
 
       opts.dashboard.preset.header = logo
 

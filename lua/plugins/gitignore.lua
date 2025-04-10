@@ -4,5 +4,7 @@ return {
     config = function()
       require("gitignore")
     end,
+    cmd = "Gitignore",
+    lazy = true,
   },
 }

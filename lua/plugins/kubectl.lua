@@ -9,4 +9,5 @@ return {
     { "8", "<Plug>(kubectl.view_overview)", ft = "k8s_*" },
     { "<C-t>", "<Plug>(kubectl.view_top)", ft = "k8s_*" },
   },
+  lazy = true,
 }
