@@ -40,6 +40,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.nushell" },
     { import = "lazyvim.plugins.extras.lang.nix" },
     -- utils
+    { import = "lazyvim.plugins.extras.lsp.neoconf" },
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
     -- import/override with your plugins
