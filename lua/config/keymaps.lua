@@ -26,3 +26,25 @@ end
 
 -- bind for code actions --sarah
 vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, { noremap = true, desc = "Code Action" })
+
+-- lazyjj bind like the one for lazygit
+if vim.fn.executable("lazyjj") == 1 then
+  -- WRAPPER FUNCTION
+  local open_lazyjj = function(opts)
+    local cmd = { "lazyjj" }
+    vim.list_extend(cmd, opts.args or {})
+
+    return Snacks.terminal(cmd, opts)
+  end
+
+  -- the keymaps themselves
+  vim.keymap.set("n", "<leader>jj", function()
+    open_lazyjj({ args = {
+      p = LazyVim.root.git(),
+    } })
+  end, { desc = "LazyJJ (root)" })
+
+  vim.keymap.set("n", "<leader>jJ", function()
+    open_lazyjj()
+  end, { desc = "LazyJJ (cwd)" })
+end
