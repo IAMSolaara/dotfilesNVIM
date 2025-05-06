@@ -44,7 +44,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lsp.neoconf" },
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
-    { import = "lazyvim.plugins.extras.ui.smear-cursor" },
     -- import/override with your plugins
     { import = "plugins" },
   },

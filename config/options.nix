@@ -15,6 +15,11 @@
     neovide_window_blurred = true;
     neovide_input_macos_option_key_is_meta = "only_left";
   };
+
+  plugins.neoconf = {
+    enable = true;
+  };
+
   keymaps = [
     {
       key = "<leader>qq";
