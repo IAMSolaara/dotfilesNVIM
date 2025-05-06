@@ -1,4 +1,4 @@
 {
   # Import all your configuration modules here
-  imports = [./bufferline.nix ./options.nix];
+  imports = [./ui.nix ./options.nix ./git.nix];
 }
