@@ -1,3 +1,3 @@
 {
-  imports = [./markdown.nix];
+  imports = [./markdown.nix ./http.nix];
 }

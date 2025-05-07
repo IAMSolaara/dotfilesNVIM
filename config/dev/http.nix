@@ -1,3 +1,8 @@
+{
+  plugins.kulala.enable = true;
+}
+/*
+   lua
 return {
   {
     "mistweaverco/kulala.nvim",
@@ -31,3 +36,5 @@ return {
     },
   },
 }
+*/
+
