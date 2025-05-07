@@ -1,4 +1,5 @@
 {
+  enableMan = true;
   opts = {
     number = true;
     relativenumber = false;
@@ -72,9 +73,7 @@
     snacks_animate = true;
   };
 
-  plugins.neoconf = {
-    enable = true;
-  };
+  plugins.neoconf.enable = true;
 
   keymaps = [
     {
