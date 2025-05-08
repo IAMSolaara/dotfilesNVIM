@@ -1,4 +1,4 @@
 {
   # Import all your configuration modules here
-  imports = [./ui ./options.nix ./git.nix ./dev];
+  imports = [./ui ./dev ./options.nix ./git.nix ./misc-plugins.nix];
 }

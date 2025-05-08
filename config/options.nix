@@ -25,7 +25,7 @@
       eob = " ";
     };
     foldlevel = 99;
-    formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()";
+    formatexpr = "v:lua.require'conform'.formatexpr()";
     formatoptions = "jcroqlnt";
     grepformat = "%f:%l:%c:%m";
     grepprg = "rg --vimgrep";
@@ -72,9 +72,6 @@
     trouble_lualine = true;
     snacks_animate = true;
   };
-
-  plugins.neoconf.enable = true;
-  plugins.lz-n.enable = true;
 
   keymaps = lib.lists.flatten (lib.attrsets.attrValues {
     buffers = [

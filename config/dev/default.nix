@@ -1,6 +1,52 @@
 {
   imports = [./markdown.nix ./http.nix ./lang];
 
+  plugins.blink-cmp.enable = true;
+  plugins.blink-cmp.settings = {
+    appearance = {
+      nerd_font_variant = "normal";
+      use_nvim_cmp_as_default = true;
+    };
+    completion = {
+      accept = {
+        auto_brackets = {
+          enabled = true;
+          semantic_token_resolution.enabled = false;
+        };
+      };
+      documentation = {
+        auto_show = true;
+      };
+    };
+    keymap = {
+      preset = "enter";
+    };
+    signature.enabled = true;
+
+    sources = {
+      cmdline = [];
+      providers = {
+        buffer = {
+          score_offset = -7;
+        };
+        lsp = {
+          fallbacks = [];
+        };
+      };
+    };
+  };
+
+  plugins.friendly-snippets.enable = true;
+
+  plugins.conform-nvim.enable = true;
+  plugins.conform-nvim.settings = {
+    format_on_save = {
+      # These options will be passed to conform.format()
+      timeout_ms = 500;
+      lsp_format = "fallback";
+    };
+  };
+
   plugins.trouble.enable = true;
   plugins.trouble.lazyLoad.settings.cmd = "Trouble";
   plugins.trouble.settings = {
