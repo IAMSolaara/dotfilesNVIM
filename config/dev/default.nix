@@ -1,5 +1,5 @@
 {
-  imports = [./markdown.nix ./http.nix ./lang_clangd.nix ./lang_lua_ls.nix];
+  imports = [./markdown.nix ./http.nix ./lang];
 
   plugins.trouble.enable = true;
   plugins.trouble.lazyLoad.settings.cmd = "Trouble";
