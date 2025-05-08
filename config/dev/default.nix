@@ -1,5 +1,5 @@
 {
-  imports = [./markdown.nix ./http.nix];
+  imports = [./markdown.nix ./http.nix ./lang_clangd.nix ./lang_lua_ls.nix];
 
   plugins.trouble.enable = true;
   plugins.trouble.lazyLoad.settings.cmd = "Trouble";
@@ -114,26 +114,5 @@
         ".git"
       ];
     };
-  };
-
-  lsp.servers.clangd = {
-    enable = true;
-    settings = {
-      cmd = [
-        "clangd"
-        "--background-index"
-      ];
-      filetypes = [
-        "c"
-        "cpp"
-      ];
-      root_markers = [
-        "compile_commands.json"
-        "compile_flags.txt"
-      ];
-    };
-  };
-  lsp.servers.lua_ls = {
-    enable = true;
   };
 }
