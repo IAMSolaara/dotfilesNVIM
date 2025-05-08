@@ -23,6 +23,7 @@
           extraSpecialArgs = {
             # inherit (inputs) foo;
             inherit inputs;
+            utils = import ./utils.nix;
           };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;

@@ -1,6 +1,8 @@
 {
   colorschemes.catppuccin = {
     enable = true;
+    lazyLoad.enable = true;
+
     settings = {
       flavor = "macchiato";
       term_colors = true;

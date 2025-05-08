@@ -74,6 +74,7 @@
   };
 
   plugins.neoconf.enable = true;
+  plugins.lz-n.enable = true;
 
   keymaps = lib.lists.flatten (lib.attrsets.attrValues {
     buffers = [
@@ -215,6 +216,51 @@
         action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
         options.desc = "Move Up";
         options.silent = true;
+      }
+    ];
+
+    search = [
+      {
+        mode = "n";
+        key = "n";
+        action = "'Nn'[v:searchforward].'zv'";
+        options.expr = true;
+        options.desc = "Next Search Result";
+      }
+      {
+        mode = "x";
+        key = "n";
+        action = "'Nn'[v:searchforward]";
+        options.expr = true;
+        options.desc = "Next Search Result";
+      }
+      {
+        mode = "o";
+        key = "n";
+        action = "'Nn'[v:searchforward]";
+        options.expr = true;
+        options.desc = "Next Search Result";
+      }
+      {
+        mode = "n";
+        key = "N";
+        action = "'nN'[v:searchforward].'zv'";
+        options.expr = true;
+        options.desc = "Prev Search Result";
+      }
+      {
+        mode = "x";
+        key = "N";
+        action = "'nN'[v:searchforward]";
+        options.expr = true;
+        options.desc = "Prev Search Result";
+      }
+      {
+        mode = "o";
+        key = "N";
+        action = "'nN'[v:searchforward]";
+        options.expr = true;
+        options.desc = "Prev Search Result";
       }
     ];
   });
