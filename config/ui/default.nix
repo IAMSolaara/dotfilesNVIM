@@ -7,12 +7,12 @@
   plugins.bufferline.enable = true;
   plugins.bufferline.settings = {
     options = {
-      close_command =
+      close_command.__raw =
         #lua
-        "lua function(n) Snacks.bufdelete(n) end";
-      right_mouse_command =
+        "function(n) Snacks.bufdelete(n) end";
+      right_mouse_command.__raw =
         #lua
-        "lua function(n) Snacks.bufdelete(n) end";
+        "function(n) Snacks.bufdelete(n) end";
       diagnostics = "nvim_lsp";
       always_show_bufferline = false;
 
