@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   enableMan = true;
   opts = {
     number = true;
@@ -75,125 +75,147 @@
 
   plugins.neoconf.enable = true;
 
-  keymaps = [
-    {
-      key = "{";
-      action = "<cmd>bprevious<cr>";
-      options.desc = "Previous buffer";
-    }
-    {
-      key = "}";
-      action = "<cmd>bnext<cr>";
-      options.desc = "Next buffer";
-    }
-    {
-      key = "<leader>qq";
-      action = "<cmd>qa<CR>";
-      options.desc = "Quit All";
-    }
+  keymaps = lib.lists.flatten (lib.attrsets.attrValues {
+    buffers = [
+      {
+        key = "{";
+        action = "<cmd>bprevious<cr>";
+        options.desc = "Previous buffer";
+      }
+      {
+        key = "}";
+        action = "<cmd>bnext<cr>";
+        options.desc = "Next buffer";
+      }
+      {
+        key = "<leader>bd";
+        action.__raw = "function() Snacks.bufdelete() end";
+        options.desc = "Delete Buffer";
+      }
+      {
+        key = "<leader>bo";
+        action.__raw = "function() Snacks.bufdelete.other() end";
+        options.desc = "Delete Other Buffers";
+      }
+      {
+        key = "<leader>bD";
+        action = "<cmd>:bd<cr>";
+        options.desc = "Delete Buffer and Window";
+      }
+    ];
 
-    {
-      mode = "v";
-      key = "<";
-      action = "<gv";
-    }
-    {
-      mode = "v";
-      key = ">";
-      action = ">gv";
-    }
+    misc = [
+      {
+        key = "<leader>qq";
+        action = "<cmd>qa<CR>";
+        options.desc = "Quit All";
+      }
 
-    {
-      mode = ["i" "x" "n" "s"];
-      key = "<C-s>";
-      action = "<cmd>w<cr><esc>";
-      options.desc = "Save File";
-    }
+      {
+        mode = "v";
+        key = "<";
+        action = "<gv";
+      }
+      {
+        mode = "v";
+        key = ">";
+        action = ">gv";
+      }
 
-    # move lines cutely
-    {
-      mode = "n";
-      key = "<A-j>";
-      action = "<cmd>execute 'move .+' . v:count1<cr>==";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<A-k>";
-      action = "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-    {
-      mode = "i";
-      key = "<A-j>";
-      action = "<esc><cmd>m .+1<cr>==gi";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "i";
-      key = "<A-k>";
-      action = "<esc><cmd>m .-2<cr>==gi";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-    {
-      mode = "v";
-      key = "<A-j>";
-      action = ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "v";
-      key = "<A-k>";
-      action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<A-Down>";
-      action = "<cmd>execute 'move .+' . v:count1<cr>==";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<A-Up>";
-      action = "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-    {
-      mode = "i";
-      key = "<A-Down>";
-      action = "<esc><cmd>m .+1<cr>==gi";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "i";
-      key = "<A-Up>";
-      action = "<esc><cmd>m .-2<cr>==gi";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-    {
-      mode = "v";
-      key = "<A-Down>";
-      action = ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv";
-      options.desc = "Move Down";
-      options.silent = true;
-    }
-    {
-      mode = "v";
-      key = "<A-Up>";
-      action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
-      options.desc = "Move Up";
-      options.silent = true;
-    }
-  ];
+      {
+        mode = ["i" "x" "n" "s"];
+        key = "<C-s>";
+        action = "<cmd>w<cr><esc>";
+        options.desc = "Save File";
+      }
+    ];
+
+    move_lines = [
+      # move lines cutely
+      {
+        mode = "n";
+        key = "<A-j>";
+        action = "<cmd>execute 'move .+' . v:count1<cr>==";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<A-k>";
+        action = "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+      {
+        mode = "i";
+        key = "<A-j>";
+        action = "<esc><cmd>m .+1<cr>==gi";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "i";
+        key = "<A-k>";
+        action = "<esc><cmd>m .-2<cr>==gi";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+      {
+        mode = "v";
+        key = "<A-j>";
+        action = ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "v";
+        key = "<A-k>";
+        action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<A-Down>";
+        action = "<cmd>execute 'move .+' . v:count1<cr>==";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<A-Up>";
+        action = "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+      {
+        mode = "i";
+        key = "<A-Down>";
+        action = "<esc><cmd>m .+1<cr>==gi";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "i";
+        key = "<A-Up>";
+        action = "<esc><cmd>m .-2<cr>==gi";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+      {
+        mode = "v";
+        key = "<A-Down>";
+        action = ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv";
+        options.desc = "Move Down";
+        options.silent = true;
+      }
+      {
+        mode = "v";
+        key = "<A-Up>";
+        action = ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv";
+        options.desc = "Move Up";
+        options.silent = true;
+      }
+    ];
+  });
 }

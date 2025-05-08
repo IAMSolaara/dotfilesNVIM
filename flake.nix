@@ -7,7 +7,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {
+  outputs = inputs @ {
     nixvim,
     flake-utils,
     ...
@@ -22,14 +22,16 @@
           # You can use `extraSpecialArgs` to pass additional arguments to your module files
           extraSpecialArgs = {
             # inherit (inputs) foo;
+            inherit inputs;
           };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
+        nvim_check = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
       in {
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-          so-nvim = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          default = nvim_check;
+          so-nvim = nvim_check;
         };
 
         packages = {

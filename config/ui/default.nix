@@ -43,11 +43,15 @@
     enable_tailwind = true;
     enable_named_colors = true;
   };
+
   plugins.smear-cursor.enable = true;
+
   plugins.nui.enable = true;
+
   plugins.mini.enable = true;
   plugins.mini.modules.icons.enable = true;
   plugins.mini.mockDevIcons = true;
+
   plugins.notify.enable = true;
 
   plugins.noice.enable = true;
@@ -76,14 +80,27 @@
     statuscolumn.enabled = false;
     words.enabled = true;
   };
-  plugins.neo-tree.enable = true;
-  plugins.neo-tree.enableDiagnostics = true;
-  plugins.neo-tree.enableGitStatus = true;
-  plugins.neo-tree.enableModifiedMarkers = true;
-  plugins.neo-tree.enableRefreshOnWrite = true;
-  plugins.neo-tree.gitStatusAsync = true;
-  plugins.neo-tree.addBlankLineAtTop = true;
-  plugins.neo-tree.autoCleanAfterSessionRestore = true;
+
+  plugins.neo-tree = {
+    enable = true;
+    enableDiagnostics = true;
+    enableGitStatus = true;
+    enableModifiedMarkers = true;
+    enableRefreshOnWrite = true;
+    gitStatusAsync = true;
+    addBlankLineAtTop = true;
+    autoCleanAfterSessionRestore = true;
+  };
+  keymaps = [
+    {
+      key = "<leader>e";
+      action.__raw =
+        #lua
+        ''function() require("neo-tree.command").execute({ toggle = true }) end'';
+      options.silent = true;
+      options.desc = "Launch LazyGit.";
+    }
+  ];
 
   colorschemes.catppuccin = {
     enable = true;
