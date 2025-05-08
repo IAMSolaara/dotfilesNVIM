@@ -85,6 +85,22 @@
         "type": "github"
       }
     },
+    "k8s-snippets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702443534,
+        "narHash": "sha256-vVDKI9HR1QqJDHh10oZQ9Zr01gvJhj1iIEgwP+gssx8=",
+        "owner": "budimanjojo",
+        "repo": "k8s-snippets",
+        "rev": "ba5ca9b1b12a3b1c3fb0237494380f4feff668c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "budimanjojo",
+        "repo": "k8s-snippets",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746576598,
@@ -163,6 +179,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "k8s-snippets": "k8s-snippets",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       }

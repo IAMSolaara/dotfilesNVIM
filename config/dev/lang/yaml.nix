@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   lsp.servers.yamlls = {
     enable = true;
     settings = {
@@ -18,5 +18,11 @@
         "https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" = "*flow*.{yml;yaml}";
       };
     };
+  };
+
+  plugins.blink-cmp.settings = {
+    sources.providers.snippets.opts.search_paths = [
+      inputs.k8s-snippets.outPath
+    ];
   };
 }

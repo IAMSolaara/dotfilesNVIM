@@ -16,6 +16,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
+
+    k8s-snippets.url = "github:budimanjojo/k8s-snippets";
+    k8s-snippets.flake = false;
   };
 
   outputs = inputs @ {
