@@ -4,5 +4,6 @@
     ./lua.nix
     ./nix.nix
     ./yaml.nix
+    ./typst.nix
   ];
 }
